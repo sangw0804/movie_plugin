@@ -1,17 +1,20 @@
-// function sayHello(){
-//   document.body.innerText = "Hello, World!";
-// }
-// window.onload = sayHello;
-
-const msg = document.getElementById('message');
+// const msg = document.getElementById('message');
 
 chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.action == 'getSource') {
-    const { source } = request;
-    msg.innerText = source;
-    chrome.tabs.create({
-      url: `https://movie.naver.com/movie/search/result.nhn?query=${source}&section=all&ie=utf8`,
-      selected: true
+    const { title, link, image, director, actors, date, rate } = request;
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        title,
+        link,
+        image,
+        director,
+        actors,
+        date,
+        rate
+      }
     });
   }
 });

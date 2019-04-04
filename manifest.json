@@ -3,13 +3,10 @@
   "name": "movie_reserve_plugin",
   "description": "if opened web page is about a movie, this extension directly open reservation page of that movie!",
   "version": "1.0.0",
-
+  "content_security_policy": "script-src 'self' https://cdn.jsdelivr.net/npm/vue 'unsafe-eval'; object-src 'self'",
   "browser_action": {
     "default_icon": "popcorn.png",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "tabs",
-    "<all_urls>"
-  ]
+  "permissions": ["tabs", "<all_urls>", "http://localhost:3000/*"]
 }

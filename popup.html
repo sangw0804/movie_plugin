@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            BODY {width : 520px; min-height:250px;}
-        </style>
-    </head>
-    <body>
-      <div id='message'></div>
-      <script src="popup.js"></script>
-    </body>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 520px;
+        min-height: 250px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <img :src="image" />
+      <div class="content">
+        <div class="title">{{ title }}</div>
+        <div class="center">
+          <div class><span>개봉일 : </span> {{ date }}</div>
+          <div><span>감독 : </span> {{ director }}</div>
+        </div>
+        <div class="btns">
+          <button class="mega_btn">메가박스 예매하기</button>
+          <button class="cgv_btn">CGV 예매하기</button>
+          <button class="lotte_btn">롯데시네마 예매하기</button>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
 </html>
