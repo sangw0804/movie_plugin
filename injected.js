@@ -45,7 +45,7 @@ const getRankOfCandidates = raw => {
 };
 
 const { innerText: title } = document.getElementsByTagName('title')[0];
-console.log(title);
+console.log(title)
 
 // 이 파일에서 dom 작업 모두 처리
 
@@ -54,7 +54,7 @@ if (!movie.length) {
   movie = inspect(title);
 }
 console.log(movie);
-fetch(`http://localhost:3000/movie_search?movie=${movie[0]}`).then(
+fetch(`https://movie-plugin.p-e.kr/movie_search?movie=${movie[0]}`).then(
   async res => {
     const movies = JSON.parse(await res.text());
     console.log(movies);
