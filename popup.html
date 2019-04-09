@@ -9,9 +9,13 @@
         box-sizing: border-box;
         color: white;
       }
+      a {
+        text-decoration: none;
+      }
+
       body {
         width: 220px;
-        height: 600px;
+        height: 500px;
         background-color: rgba(0, 0, 0, 0.7);
       }
       #app {
@@ -42,14 +46,8 @@
         height: 35px;
         border-radius: 10px;
       }
-      .mega_btn {
-        background-color: blueviolet;
-      }
-      .cgv_btn {
-        color: red;
-      }
-      .lotte_btn {
-        background-color: red;
+      .naver_movie_btn {
+        background-color: rgb(44, 198, 34);
       }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -67,9 +65,7 @@
         </div>
       </div>
       <div class="btns">
-        <button class="mega_btn">메가박스 예매하기</button>
-        <button class="cgv_btn">CGV 예매하기</button>
-        <button class="lotte_btn">롯데시네마 예매하기</button>
+        <button class="naver_movie_btn"><a :href="link" target="_blank">네이버 영화 예매하기</a></button>
       </div>
     </div>
     <script src="popup.js"></script>

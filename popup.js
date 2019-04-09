@@ -1,19 +1,20 @@
-// const msg = document.getElementById('message');
-
 chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.action == 'getSource') {
     const { title, link, image, director, actors, date, rate } = request;
 
+    const trimedTitle = title.split('<b>').join("").split('</b>').join("")
+
     const app = new Vue({
       el: '#app',
       data: {
-        title,
+        title: trimedTitle,
         link,
         image,
         director,
         actors,
         date,
-        rate
+        rate,
+        link
       }
     });
   }
@@ -27,7 +28,7 @@ const onWindowLoad = () => {
     },
     () => {
       if (chrome.runtime.lastError) {
-        msg.innerText = chrome.runtime.lastError.message;
+       alert(chrome.runtime.lastError.message);
       }
     }
   );

@@ -66,7 +66,8 @@ fetch(`https://movie-plugin.p-e.kr/movie_search?movie=${movie[0]}`).then(
       director: movies[0].director,
       actors: movies[0].actor,
       date: movies[0].pubDate,
-      rate: movies[0].userRating
+      rate: movies[0].userRating,
+      link: movies[0].link
     });
   }
 );
