@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener((request, sender) => {
   if (request.action == 'getSource') {
-    const { title, link, image, director, actors, date, rate } = request;
+    const { movies } = request;
 
-    const trimedTitle = title
+    const trimedTitle = movies[0].title
       .split('<b>')
       .join('')
       .split('</b>')
@@ -12,13 +12,13 @@ chrome.runtime.onMessage.addListener((request, sender) => {
       el: '#app',
       data: {
         title: trimedTitle,
-        link,
-        image,
-        director,
-        actors,
-        date,
-        rate,
-        link
+        link: movies[0].link,
+        image: movies[0].image,
+        director: movies[0].director,
+        actors: movies[0].actor,
+        date: movies[0].pubDate,
+        rate: movies[0].userRating,
+        link: movies[0].link
       }
     });
   }
