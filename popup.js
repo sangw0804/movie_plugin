@@ -34,7 +34,11 @@ const excuteScripts = fileName =>
   });
 
 const onWindowLoad = async () => {
-  const files = ['helpers/getRankOfCandidates.js', 'injected.js'];
+  const files = [
+    'helpers/getRankOfCandidates.js',
+    'helpers/inspect.js',
+    'main.js'
+  ];
 
   for (let i = 0; i < files.length; i++) {
     await excuteScripts(files[i]);
