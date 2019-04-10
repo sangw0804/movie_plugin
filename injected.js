@@ -27,25 +27,8 @@ const inspect = raw => {
   return Object.keys(counter).sort((a, b) => counter[b] - counter[a]);
 };
 
-const getRankOfCandidates = raw => {
-  // 어떻게 html title에서 영화 제목을 뽑아낼 것인가?
-  // '' "" <> [] 로 둘러쌓인 문자열 -> 영화 제목일 가능성 가장 높음!
-  const clues = [["'", "'"], ['"', '"'], ['<', '>'], ['[', ']']];
-  const candidates = [];
-
-  clues.forEach(clue => {
-    const result = isThereTwo(raw, clue[0], clue[1]);
-
-    if (result) {
-      candidates.push(raw.substring(result[0], result[1]));
-    }
-  });
-
-  return candidates;
-};
-
 const { innerText: title } = document.getElementsByTagName('title')[0];
-console.log(title)
+console.log(title);
 
 // 이 파일에서 dom 작업 모두 처리
 
@@ -53,6 +36,7 @@ let movie = getRankOfCandidates(title);
 if (!movie.length) {
   movie = inspect(title);
 }
+
 console.log(movie);
 fetch(`https://movie-plugin.p-e.kr/movie_search?movie=${movie[0]}`).then(
   async res => {
