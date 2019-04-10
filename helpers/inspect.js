@@ -1,4 +1,4 @@
-const inspect = raw => {
+inspect = raw => {
   const blackList = ['네이버', '영화', '블로그', ':', '-'];
 
   // 페이지의 텍스트에서 title에 있는 단어들이 몇번씩 등장하는지 검색

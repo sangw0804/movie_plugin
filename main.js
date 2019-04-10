@@ -1,8 +1,8 @@
-const { innerText: title } = document.getElementsByTagName('title')[0];
+title = document.getElementsByTagName('title')[0].innerText;
 console.log(title);
 
 // from /helpers
-let movie = getRankOfCandidates(title);
+movie = getRankOfCandidates(title);
 if (!movie.length) {
   movie = inspect(title);
 }
